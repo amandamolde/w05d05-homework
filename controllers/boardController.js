@@ -57,4 +57,14 @@ router.put('/:id', (req, res) => {
 	})
 });
 
+router.delete('/:id', (req, res) => {
+	Paddleboards.findByIdAndRemove(req.params.id, (err, board) => {
+		if(err) {
+			res.send(err);
+		} else {
+			res.redirect('/paddleboards');
+		}
+	})
+});
+
 module.exports = router;
