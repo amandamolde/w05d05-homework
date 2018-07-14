@@ -27,4 +27,14 @@ router.post('/', (req, res) => {
 	})
 });
 
+router.get('/:id', (req, res) => {
+	Paddleboards.findById(req.params.id, (err, board) => {
+		if (err) {
+			res.send(err);
+		} else {
+			res.render('show.ejs', {board: board});
+		}
+	})
+});
+
 module.exports = router;
