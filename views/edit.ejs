@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Edit a Board</h1>
+
+	<form method="POST" action="/paddleboards/<%= board.id %>?_method=PUT">
+		Brand: <input type="input" name="brand" value="<%= board.brand %>"><br/>
+		Type: <input type="input" name="type" value="<%= board.type %>"><br/>
+		Year Founded: <input type="input" name="year-founded" value="<%= board.year_founded %>"><br/>
+		Location: <input type="input" name="location" value="<%= board.location %>"><br/>
+		<input type="submit" value="Submit Changes">
+	</form>
+
+</body>
+</html>

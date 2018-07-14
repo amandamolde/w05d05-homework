@@ -37,4 +37,24 @@ router.get('/:id', (req, res) => {
 	})
 });
 
+router.get('/:id/edit', (req, res) => {
+	Paddleboards.findById(req.params.id, (err, board) => {
+		if (err) {
+			res.send(err);
+		} else {
+			res.render('edit.ejs', {board: board});
+		}
+	})
+});
+
+router.put('/:id', (req, res) => {
+	Paddleboards.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, board) => {
+		if(err) {
+			res.send(err);
+		} else {
+			res.redirect('/paddleboards');
+		}
+	})
+});
+
 module.exports = router;
