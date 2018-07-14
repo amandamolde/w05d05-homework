@@ -4,8 +4,11 @@ const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 
-const methodOverride = require('mthod-override');
+const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
+
+const boardController = require('./controllers/boardController');
+app.use('/paddleboards', boardController);
 
 require('./db/db');
 

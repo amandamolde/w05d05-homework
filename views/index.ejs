@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>PaddleBoards</h1>
+	<h2>Check Out All the Boards!</h2>
+
+	<% for (let i = 0; i < boards.length; i++) { %>
+	<h3><a href="/paddleboards/<%= boards[i].id %>"><%= boards[i].name %></a></h3>
+
+	<form method="POST" action='/paddleboards/<%= boards[i].id %>?_method=DELETE'>
+		<input type="submit" name="DELETE">
+	</form>
+
+	<% } %>
+
+</body>
+</html>
