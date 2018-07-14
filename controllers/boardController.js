@@ -17,4 +17,14 @@ router.get('/new', (req, res) => {
 	res.render('new.ejs');
 });
 
+router.post('/', (req, res) => {
+	Paddleboards.create(req.body, (err, createdBoard) =>{
+		if (err) {
+			res.send(err);
+		} else {
+			res.redirect(`/paddleboards/${createdBoard.id}`);
+		}
+	})
+});
+
 module.exports = router;
